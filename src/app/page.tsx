@@ -47,7 +47,7 @@ export default function Home() {
             ))}
           </ul>
           <button
-            className="border rounded-md p-4 mt-6"
+            className="border rounded-md p-4 mt-6 w-full"
             onClick={handleRestart}
           >
             Restart app

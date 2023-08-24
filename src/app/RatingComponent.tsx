@@ -20,7 +20,7 @@ export default function RatingComponent({
 
   return (
     <div
-      className="text-2xl text-yellow-500"
+      className="text-4xl text-yellow-500 flex justify-center"
       onMouseLeave={() => setHoverValue(value)}
     >
       {"★"
