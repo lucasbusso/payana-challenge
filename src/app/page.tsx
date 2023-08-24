@@ -23,32 +23,37 @@ export default function Home() {
     setAnswers([]);
   }
 
-  if (!currentQuestion) {
-    return (
-      <>
-        <div className="w-full text-2xl mb-6 text-left">Your valorations:</div>
-        <ul className="border rounded-md p-4 w-full">
-          {answers.map((answer) => (
-            <li
-              key={answer.id}
-              className="flex items-center justify-between gap-2"
-            >
-              {answer.texto}{" "}
-              <RatingComponent isReadOnly value={answer.valoracion} />
-            </li>
-          ))}
-        </ul>
-        <button className="border rounded-md p-4 mt-6" onClick={handleRestart}>
-          Restart app
-        </button>
-      </>
-    );
-  }
-
   return (
-    <div>
-      <h1>{currentQuestion.texto}</h1>
-      <RatingComponent value={1} onChange={handleRate} />
-    </div>
+    <>
+      {currentQuestion ? (
+        <div>
+          <h1>{currentQuestion.texto}</h1>
+          <RatingComponent value={1} onChange={handleRate} />
+        </div>
+      ) : (
+        <div>
+          <div className="w-full text-2xl mb-6 text-left">
+            Your valorations:
+          </div>
+          <ul className="border rounded-md p-4 w-full">
+            {answers.map((answer) => (
+              <li
+                key={answer.id}
+                className="flex items-center justify-between gap-2"
+              >
+                {answer.texto}{" "}
+                <RatingComponent isReadOnly value={answer.valoracion} />
+              </li>
+            ))}
+          </ul>
+          <button
+            className="border rounded-md p-4 mt-6"
+            onClick={handleRestart}
+          >
+            Restart app
+          </button>
+        </div>
+      )}
+    </>
   );
 }
